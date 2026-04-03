@@ -272,35 +272,54 @@ export default function App() {
             <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
               About Me
             </p>
+
             <h2 className="mt-3 text-3xl font-bold">
-              Builder mindset, real-world urgency
+              How I Think About Building Software
             </h2>
+
             <p className="mt-5 leading-8 text-neutral-300">
-              My background includes emergency medicine, where quick thinking,
-              communication, and calm problem-solving mattered every day. I
-              brought that same mindset into software: understand the problem,
-              build something useful, and keep improving it until it works well.
+              I did not come into software through the traditional path, and that has
+              shaped the kind of engineer I am.
             </p>
+
             <p className="mt-4 leading-8 text-neutral-300">
-              I’ve focused on backend development, practical product building,
-              and shipping complete projects. I’m looking for software
-              developer opportunities where I can contribute while continuing to
-              grow as an engineer.
+              I grew up on a farm where solving problems was part of everyday life. If
+              something broke, you fixed it. There was no escalation path, no waiting
+              for someone else to step in, and no room to ignore the problem.
+            </p>
+
+            <p className="mt-4 leading-8 text-neutral-300">
+              That mindset carried into emergency medicine. As an EMT-B in Washington,
+              DC, I worked in environments where decisions had real consequences and
+              systems often failed. You learn to stay calm, think clearly, and take
+              ownership.
+            </p>
+
+            <p className="mt-4 leading-8 text-neutral-300">
+              Software gave me a way to solve those problems at scale. I focus on
+              backend systems, operational tools, and building applications that
+              reduce friction instead of adding to it.
+            </p>
+
+            <p className="mt-4 leading-8 text-neutral-300">
+              Today, I build full-stack applications using Python, Django, APIs, and
+              modern web technologies with an emphasis on reliability, execution, and
+              practical value.
             </p>
           </div>
 
           <div className="rounded-3xl border border-amber-400/20 bg-amber-400/5 p-8">
             <p className="text-sm uppercase tracking-[0.3em] text-amber-300">
-              Why this site works
+              What Sets Me Apart
             </p>
 
             <div className="mt-5 grid gap-4">
               {[
-                "Clear headline recruiters can understand fast",
-                "Project summaries focused on business value and technical execution",
-                "Skills section for quick scanning",
-                "Professional story that supports your transition into software engineering",
-                "Strong starting point for adding resume, GitHub, and LinkedIn links",
+                "Builder mindset from real-world environments",
+                "Experience solving problems under pressure",
+                "Focus on systems that actually work in practice",
+                "Strong ownership and accountability",
+                "Ability to connect technical work to real operations",
               ].map((item) => (
                 <div
                   key={item}
@@ -319,7 +338,7 @@ export default function App() {
         className="mx-auto max-w-6xl px-6 pb-20 md:pb-28"
       >
         <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-amber-400/10 p-8 md:p-10">
-          <div className="grid items-center gap-10 md:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid items-start gap-10 md:grid-cols-[1.2fr_0.8fr]">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
                 Contact
@@ -328,14 +347,15 @@ export default function App() {
                 Let’s talk about opportunities
               </h2>
               <p className="mt-4 max-w-2xl leading-8 text-neutral-300">
-                This section is ready for your real contact details, resume
-                link, GitHub, and LinkedIn.
+                I’m looking for software engineering opportunities where I can
+                contribute to real products, keep growing as a backend developer,
+                and help build systems that solve meaningful problems.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href="mailto:ConwayMBenson@gmail.com"
-                  className="rounded-2xl bg-amber-400 px-6 py-3 font-semibold text-neutral-950"
+                  className="rounded-2xl bg-amber-400 px-6 py-3 font-semibold text-neutral-950 transition hover:scale-[1.02]"
                 >
                   Email Me
                 </a>
@@ -344,10 +364,11 @@ export default function App() {
                   href="https://github.com/waycon86?tab=repositories"
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white"
+                  className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-amber-400 hover:text-amber-300"
                 >
                   GitHub
                 </a>
+
                 <a
                   href="https://www.linkedin.com/in/conwaymbenson/"
                   target="_blank"
@@ -356,10 +377,11 @@ export default function App() {
                 >
                   LinkedIn
                 </a>
+
                 <a
                   href="/resume.pdf"
                   download
-                  className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white"
+                  className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-amber-400 hover:text-amber-300"
                 >
                   Download Resume
                 </a>
@@ -367,14 +389,25 @@ export default function App() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-neutral-950/70 p-6">
-              <p className="text-sm text-neutral-400">Next adds</p>
-              <ul className="mt-4 space-y-3 text-sm text-neutral-200">
-                <li>Resume download button</li>
-                <li>Live project links</li>
-                <li>GitHub profile link</li>
-                <li>LinkedIn profile link</li>
-                <li>Project screenshots</li>
-              </ul>
+              <p className="text-sm uppercase tracking-[0.2em] text-amber-400">
+                What I’m Looking For
+              </p>
+
+              <h3 className="mt-3 text-lg font-semibold text-white">
+                Software Engineering Opportunities
+              </h3>
+
+              <p className="mt-4 text-sm leading-6 text-neutral-300">
+                I’m currently seeking a software engineering role where I can
+                contribute to real systems, strengthen my backend skills, and
+                continue growing as an engineer.
+              </p>
+
+              <p className="mt-4 text-sm leading-6 text-neutral-300">
+                I’m especially interested in backend or full-stack roles where I
+                can build, ship, debug, and improve software that has practical
+                impact.
+              </p>
             </div>
           </div>
         </div>
