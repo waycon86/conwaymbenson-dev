@@ -2,56 +2,72 @@ export default function App() {
   const skills = [
     "Python",
     "Django",
-    "Django REST Framework",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "PostgreSQL",
-    "Git & GitHub",
     "REST APIs",
+    "PostgreSQL",
+    "JavaScript",
+    "HTML / CSS",
+    "Git & GitHub",
+    "Linux (Ubuntu)",
     "Render",
     "Capacitor",
+    "Progressive Web Apps (PWA)",
     "Responsive Design",
+    "Tableau",
+    "R Data Science",
+    "Salesforce",
+    "ServiceBench",
+    "System Troubleshooting",
   ];
 
   const projects = [
     {
-      title: "AppBar / Training Hub",
-      subtitle: "Full-stack operations and training platform",
+      title: "Training Hub / AppBar",
+      subtitle: "Full-stack operations and employee training platform",
+      stack: "Python • Django • PostgreSQL • Render • JavaScript • Capacitor",
       description:
-        "Built a Django-based platform for employee training, quizzes, scheduling visibility, manuals, messaging, and manager tools. Designed for real operations use with production deployment, persistent database setup, and mobile-friendly workflows.",
+        "Built a Django-based hospitality operations platform designed to support employee training, scheduling visibility, quizzes, manuals, messaging, and manager workflows. The project focuses on real operational needs, production deployment, persistent database setup, and mobile-friendly use.",
       highlights: [
-        "Django + PostgreSQL + Render deployment",
-        "Role-based workflows for staff and managers",
-        "Training modules, quizzes, manuals, and messaging",
-        "Responsive UI with a polished branded theme",
+        "Employee authentication and profile systems",
+        "Training modules and knowledge tracking",
+        "Quiz platform supporting cocktail, wine, beer, food, dessert, and service education",
+        "PDF ingestion workflows for training content and quizzes",
+        "PostgreSQL database persistence and admin workflows",
+        "Operational dashboards and scheduling visibility",
+        "Progressive Web Apps (PWA) support",
+        "Android and iOS packaging using Capacitor",
+        "Production deployment using Render",
       ],
       liveUrl: "https://properbar.onrender.com",
       demoUsername: "demo",
       demoPassword: "Demo123!",
     },
     {
-      title: "Mobile App Packaging",
-      subtitle: "PWA to iOS/Android workflow",
+      title: "ConwayMBenson.dev",
+      subtitle: "Personal developer portfolio",
+      stack: "React • Vite • JavaScript",
       description:
-        "Converted a web application into a mobile-ready experience using PWA standards and Capacitor, including manifests, icons, safe-area fixes, and app-store preparation steps.",
+        "Built a personal portfolio website to present software projects, technical skills, resume materials, and career background in one professional place.",
+      highlights: [
+        "React and Vite frontend",
+        "Project showcase",
+        "Resume integration",
+        "Responsive layout",
+        "Professional contact section",
+      ],
+      liveUrl: "https://conwaymbenson.dev",
+    },
+    {
+      title: "Mobile App Packaging",
+      subtitle: "PWA to iOS and Android workflow",
+      stack: "Capacitor • PWA • iOS • Android",
+      description:
+        "Converted a web application into a mobile-ready experience using Progressive Web App standards and Capacitor, including manifests, icons, safe-area fixes, and app-store preparation steps.",
       highlights: [
         "PWA setup with manifest and install support",
         "Capacitor integration for iOS and Android",
-        "Mobile layout debugging and platform testing",
+        "Mobile layout debugging and device testing",
+        "App icon, splash screen, and mobile metadata setup",
         "Release preparation for app stores",
-      ],
-    },
-    {
-      title: "Cocktail PDF Import System",
-      subtitle: "Content automation for hospitality training",
-      description:
-        "Designed a workflow to upload cocktail PDFs, parse structured recipe data, and surface it inside the site without losing the front-end layout. Focused on versioning, admin usability, and clean content presentation.",
-      highlights: [
-        "Admin upload workflow",
-        "PDF parsing into structured objects",
-        "Version-safe content updates",
-        "Consistent UI across imported content",
       ],
     },
   ];
@@ -94,14 +110,15 @@ export default function App() {
               </p>
 
               <h2 className="text-4xl font-bold leading-tight md:text-6xl">
-                Building practical web applications that solve real problems.
+                Software Developer | Python | Django | Backend Systems
               </h2>
 
               <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-300">
-                I’m Conway Benson, a software developer focused on backend and
-                full-stack development with hands-on experience in Python,
-                Django, APIs, deployment, mobile usability, and production-style
-                web applications.
+                I build backend systems and operational platforms using Python,
+                Django, PostgreSQL, REST APIs, and cloud deployment workflows.
+                My background in emergency medicine, business ownership, and
+                technical operations shapes how I approach software: solve real
+                problems, own outcomes, and build systems people actually use.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -124,26 +141,26 @@ export default function App() {
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
               <div className="rounded-2xl border border-white/10 bg-neutral-900 p-6">
                 <p className="text-sm uppercase tracking-[0.25em] text-amber-400">
-                  What I bring
+                  What I Bring
                 </p>
 
                 <div className="mt-6 space-y-5">
                   {[
                     [
                       "Backend Development",
-                      "Django, Python, APIs, and database-backed applications",
+                      "Python, Django, REST APIs, and database-backed applications",
                     ],
                     [
-                      "Product Mindset",
-                      "Build tools around real business and operational needs",
+                      "Operational Mindset",
+                      "Building tools around real business and workflow needs",
                     ],
                     [
                       "Deployment Experience",
-                      "Production hosting, persistence fixes, debugging, and iteration",
+                      "Render hosting, PostgreSQL persistence, debugging, and iteration",
                     ],
                     [
                       "Mobile Readiness",
-                      "Responsive UI, PWA packaging, and app deployment workflows",
+                      "Responsive UI, Progressive Web Apps, and Capacitor packaging",
                     ],
                   ].map(([title, text]) => (
                     <div
@@ -169,12 +186,13 @@ export default function App() {
             Featured Work
           </p>
           <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Projects that show how I work
+            Projects That Show How I Work
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-neutral-300">
             I build software that is useful, maintainable, and grounded in
             real-world needs. These projects highlight backend development,
-            deployment, debugging, UX improvements, and product thinking.
+            database work, deployment, debugging, mobile workflows, and product
+            thinking.
           </p>
         </div>
 
@@ -189,9 +207,15 @@ export default function App() {
                   <p className="text-sm uppercase tracking-[0.2em] text-amber-400">
                     {project.subtitle}
                   </p>
+
                   <h3 className="mt-3 text-2xl font-semibold">
                     {project.title}
                   </h3>
+
+                  <p className="mt-2 text-sm font-semibold text-amber-300">
+                    {project.stack}
+                  </p>
+
                   <p className="mt-4 leading-8 text-neutral-300">
                     {project.description}
                   </p>
@@ -204,7 +228,7 @@ export default function App() {
                         rel="noreferrer"
                         className="rounded-xl bg-amber-400 px-4 py-2 text-sm font-semibold text-neutral-950 transition hover:scale-[1.02]"
                       >
-                        View Live App
+                        View Live Project
                       </a>
                     </div>
                   )}
@@ -242,13 +266,13 @@ export default function App() {
                 Skills
               </p>
               <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Technical skills with real project experience
+                Technical Skills With Real Project Experience
               </h2>
               <p className="mt-4 max-w-2xl leading-8 text-neutral-300">
                 My strongest experience is in Python, Django, backend workflows,
-                deployment, debugging, and building tools that improve
-                operations. I’m especially interested in software engineering
-                roles where I can contribute quickly and keep growing.
+                PostgreSQL, deployment, debugging, and building tools that
+                improve operations. I’m looking for software engineering roles
+                where I can contribute quickly and keep growing.
               </p>
             </div>
 
@@ -278,33 +302,34 @@ export default function App() {
             </h2>
 
             <p className="mt-5 leading-8 text-neutral-300">
-              I did not come into software through the traditional path, and that has
-              shaped the kind of engineer I am.
+              I did not come into software through the traditional path, and
+              that has shaped the kind of developer I am.
             </p>
 
             <p className="mt-4 leading-8 text-neutral-300">
-              I grew up on a farm where solving problems was part of everyday life. If
-              something broke, you fixed it. There was no escalation path, no waiting
-              for someone else to step in, and no room to ignore the problem.
+              I grew up on a farm where solving problems was part of everyday
+              life. If something broke, you fixed it. There was no escalation
+              path, no waiting for someone else to step in, and no room to
+              ignore the problem.
             </p>
 
             <p className="mt-4 leading-8 text-neutral-300">
-              That mindset carried into emergency medicine. As an EMT-B in Washington,
-              DC, I worked in environments where decisions had real consequences and
-              systems often failed. You learn to stay calm, think clearly, and take
-              ownership.
+              That mindset carried into emergency medicine. As an EMT-B in
+              Washington, DC, I worked in environments where decisions had real
+              consequences and systems often failed. You learn to stay calm,
+              think clearly, and take ownership.
             </p>
 
             <p className="mt-4 leading-8 text-neutral-300">
-              Software gave me a way to solve those problems at scale. I focus on
-              backend systems, operational tools, and building applications that
+              Software gave me a way to solve operational problems at scale. I
+              focus on backend systems, workflow tools, and applications that
               reduce friction instead of adding to it.
             </p>
 
             <p className="mt-4 leading-8 text-neutral-300">
-              Today, I build full-stack applications using Python, Django, APIs, and
-              modern web technologies with an emphasis on reliability, execution, and
-              practical value.
+              Today, I build applications using Python, Django, PostgreSQL,
+              REST APIs, and modern web technologies with an emphasis on
+              reliability, execution, and practical value.
             </p>
           </div>
 
@@ -333,23 +358,23 @@ export default function App() {
         </div>
       </section>
 
-      <section
-        id="contact"
-        className="mx-auto max-w-6xl px-6 pb-20 md:pb-28"
-      >
+      <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
         <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-amber-400/10 p-8 md:p-10">
           <div className="grid items-start gap-10 md:grid-cols-[1.2fr_0.8fr]">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
                 Contact
               </p>
+
               <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Let’s talk about opportunities
+                Let’s Talk About Opportunities
               </h2>
+
               <p className="mt-4 max-w-2xl leading-8 text-neutral-300">
                 I’m looking for software engineering opportunities where I can
-                contribute to real products, keep growing as a backend developer,
-                and help build systems that solve meaningful problems.
+                contribute to real products, keep growing as a backend
+                developer, and help build systems that solve meaningful
+                problems.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -400,7 +425,7 @@ export default function App() {
               <p className="mt-4 text-sm leading-6 text-neutral-300">
                 I’m currently seeking a software engineering role where I can
                 contribute to real systems, strengthen my backend skills, and
-                continue growing as an engineer.
+                continue growing as a developer.
               </p>
 
               <p className="mt-4 text-sm leading-6 text-neutral-300">
