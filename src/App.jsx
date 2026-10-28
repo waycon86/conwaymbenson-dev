@@ -12,50 +12,17 @@ function ProjectLinks({ links }) {
   ))}</div>
 }
 
-function ProjectVisual({ type }) {
-  if (type === 'student') return (
-    <div className="project-visual student-visual">
-      <div className="visual-topline"><span>STUDENT ON THE GO</span><span>THE WORKFLOW</span></div>
-      <div className="study-preview">
-        <div className="preview-heading"><span>Make room for the work.</span><span className="preview-dot" /></div>
-        <div className="preview-week" aria-hidden="true">
-          <div><span>MON</span><i className="busy-block">Class</i><i className="study-block">Research</i></div>
-          <div><span>TUE</span><i className="study-block">Outline</i><i className="busy-block long-block">Work</i></div>
-          <div><span>WED</span><i className="busy-block">Class</i><i className="study-block">Draft</i></div>
-          <div><span>THU</span><i className="study-block">Revise</i><i className="deadline-block">Due date</i></div>
-        </div>
-        <p className="preview-caption">Illustrative plan · Fixed commitments stay protected</p>
-      </div>
-      <div className="visual-bottomline"><span>Start with a deadline.</span><span>Find a realistic plan.<Arrow /></span></div>
-    </div>
-  )
-  if (type === 'waycon') return (
-    <div className="project-visual waycon-visual">
-      <div className="visual-topline"><span>WAYCON DAILY</span><span>THE WORKFLOW</span></div>
-      <div className="assistant-preview">
-        <div className="message-preview">“Help me turn my day into a plan.”</div>
-        <div className="draft-preview">
-          <div><span className="draft-symbol" aria-hidden="true">W</span><strong>A draft you can review.</strong></div>
-          <p>Describe a task. Check the details.<br />Confirm before anything is saved.</p>
-          <span className="review-label"><span aria-hidden="true">✓</span> You stay in control</span>
-        </div>
-        <p className="preview-caption">Illustrative interaction · Validate → Review → Confirm</p>
-      </div>
-      <div className="visual-bottomline"><span>Natural language in.</span><span>Structured tasks out.<Arrow /></span></div>
-    </div>
-  )
+function ProjectVisual({ project }) {
+  const { image, visual, title } = project
   return (
-    <div className="project-visual training-visual">
-      <div className="visual-topline"><span>TRAINING HUB / APPBAR</span><span>THE WORKFLOW</span></div>
-      <div className="training-preview">
-        <span className="manual-label">FROM THE FLOOR TO THE PLATFORM</span>
-        <h4>One place to get ready<br />for the shift.</h4>
-        <div className="training-modules">{['Menus & manuals', 'Training & quizzes', 'Schedules & pre-shift'].map((label, index) => (
-          <div key={label}><span>0{index + 1}</span><strong>{label}</strong><Arrow /></div>
-        ))}</div>
-      </div>
-      <div className="visual-bottomline"><span>Real hospitality workflows.</span><span>Web & mobile.<Arrow /></span></div>
-    </div>
+    <figure className={`project-visual ${visual}-visual`}>
+      <div className="visual-topline"><span>{title}</span><span>{image.kind}</span></div>
+      <a className={`project-image-link ${image.fit || ''}`} href={image.src} target="_blank" rel="noopener noreferrer" aria-label={`Open full image for ${title}`}>
+        <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
+        <span className="image-open-label">View full image<Arrow diagonal /></span>
+      </a>
+      <figcaption className="project-image-caption"><span>{image.caption}</span><Arrow diagonal /></figcaption>
+    </figure>
   )
 }
 
@@ -71,7 +38,7 @@ function FeaturedProject({ project, index }) {
         <ProjectLinks links={project.links} /><p className="project-note">{project.note}</p>
         <details className="engineering-details"><summary>Inside the build<span aria-hidden="true">+</span></summary><div>{project.engineering.map(({ title, text }) => <p key={title}><strong>{title}</strong> {text}</p>)}</div></details>
       </div>
-      <ProjectVisual type={project.visual} />
+      <ProjectVisual project={project} />
     </article>
   )
 }
@@ -106,7 +73,12 @@ export default function App() {
           <div className="foundations-header"><div><p className="eyebrow">MORE OF THE WORK</p><h3>Earlier builds & foundations</h3></div><div className="project-filters" role="group" aria-label="Filter earlier projects">{['All', 'Coursework', 'Portfolio'].map(filter => <button key={filter} type="button" aria-pressed={foundationFilter === filter} onClick={() => setFoundationFilter(filter)}>{filter}</button>)}</div></div>
           <p className="visually-hidden" role="status">{visibleFoundations.length} earlier {visibleFoundations.length === 1 ? 'project' : 'projects'} shown</p>
           <div className="foundation-grid">{visibleFoundations.map(project => (
-            <article className="foundation-project" key={project.title}><p className="foundation-category">{project.category}<span aria-hidden="true">↗</span></p><h4>{project.title}</h4><p>{project.description}</p><ul className="tech-list" aria-label={`${project.title} technologies`}>{project.stack.map(tech => <li key={tech}>{tech}</li>)}</ul><ProjectLinks links={project.links} /></article>
+            <article className="foundation-project" key={project.title}>
+              <a className="foundation-image-link" href={project.image.src} target="_blank" rel="noopener noreferrer" aria-label={`Open full image for ${project.title}`}>
+                <img src={project.image.src} alt={project.image.alt} width={project.image.width} height={project.image.height} loading="lazy" decoding="async" />
+                <span className="image-open-label">View full image<Arrow diagonal /></span>
+              </a>
+              <p className="foundation-category">{project.category}<span aria-hidden="true">↗</span></p><h4>{project.title}</h4><p>{project.description}</p><ul className="tech-list" aria-label={`${project.title} technologies`}>{project.stack.map(tech => <li key={tech}>{tech}</li>)}</ul><ProjectLinks links={project.links} /></article>
           ))}</div>
           <a className="github-more text-link" href="https://github.com/waycon86?tab=repositories" target="_blank" rel="noopener noreferrer">More experiments and learning on GitHub<Arrow diagonal /></a>
         </section>

@@ -1,6 +1,7 @@
 export const featuredProjects = [
   {
     id: 'student-on-the-go', title: 'Student on the Go', category: 'Student planning', status: 'Live app', visual: 'student',
+    image: { src: '/projects/student-on-the-go.webp', alt: 'Student on the Go campus artwork with its diploma mascot, a calendar phone, and the words Your syllabus. Your campus. Your plan.', width: 1200, height: 800, kind: 'PROJECT ARTWORK', caption: 'The Student on the Go campus mascot and app branding.' },
     subtitle: 'A deadline-first planner for a full student life.',
     shortDescription: 'Study plans that fit around real commitments.',
     description: 'Built for students balancing classes, work, and everything in between. Student on the Go works backward from assignment deadlines to find study time around fixed commitments and makes it clear when the work will not fit.',
@@ -25,6 +26,7 @@ export const featuredProjects = [
   },
   {
     id: 'waycon-daily', title: 'Waycon Daily', category: 'AI & personal planning', status: 'Active development', visual: 'waycon',
+    image: { src: '/projects/waycon-daily.webp', alt: 'Official Waycon Daily blue and cyan logo with the tagline Plan. Focus. Achieve.', width: 1400, height: 467, kind: 'OFFICIAL BRANDING', caption: 'Waycon Daily — Plan. Focus. Achieve.', fit: 'logo-image' },
     subtitle: 'A personal assistant with a review step built in.',
     shortDescription: 'Tasks, goals, and AI-assisted daily planning.',
     description: 'A Django application bringing daily tasks, longer-term goals, check-ins, and planning together. I am building AI assistance around structured drafts and clear confirmation, so people can review what will change before it happens.',
@@ -45,6 +47,7 @@ export const featuredProjects = [
   },
   {
     id: 'training-hub', title: 'Training Hub / AppBar', category: 'Hospitality operations', status: 'Deployed project', visual: 'training',
+    image: { src: '/projects/training-hub.webp', alt: 'Training Hub employee sign-in screen with the Bar, Kitchen, and Service navigation and dark gold interface.', width: 1200, height: 824, kind: 'APP SCREENSHOT', caption: 'The live Training Hub employee sign-in screen.', fit: 'screen-image' },
     subtitle: 'Built around the realities of a restaurant shift.',
     shortDescription: 'Employee training and operations in one platform.',
     description: 'A full-stack hospitality platform shaped by my experience working in restaurants. It connects employee training, menus, quizzes, scheduling, and manager workflows in a mobile-friendly application.',
@@ -68,6 +71,7 @@ export const featuredProjects = [
 export const foundationProjects = [
   {
     title: 'GoalTracker', category: 'Coursework',
+    image: { src: '/projects/goaltracker.webp', alt: 'GoalTracker dashboard showing daily habits, monthly targets, yearly milestones, and progress navigation.', width: 1100, height: 755 },
     description: 'My CS50 final project: daily, monthly, and yearly goal management, a Python-generated calendar, and Chart.js statistics. SQLite stores completion history for streaks and monthly totals; goal lists are in memory in this version.',
     stack: ['Python', 'Flask', 'Jinja', 'SQLite', 'Chart.js'],
     links: [
@@ -77,6 +81,7 @@ export const foundationProjects = [
   },
   {
     title: 'Little Lemon', category: 'Coursework',
+    image: { src: '/projects/little-lemon.webp', alt: 'Little Lemon restaurant website with its lemon logo, green navigation, dining-room banner, and booking button.', width: 1200, height: 455 },
     description: 'Projects from the Meta Back-End Developer curriculum, including a Django restaurant website with database-driven menus and booking pages, plus REST API coursework covering menus, orders, permissions, filtering, and pagination.',
     stack: ['Python', 'Django', 'Django REST Framework', 'SQL'],
     links: [
@@ -86,6 +91,7 @@ export const foundationProjects = [
   },
   {
     title: 'This portfolio', category: 'Portfolio',
+    image: { src: '/projects/portfolio.webp', alt: 'Conway Benson portfolio homepage with the Practical software. Built from real life. headline and featured project list.', width: 1100, height: 756 },
     description: 'A React and Vite site bringing my applications, technical background, and resume together. Built with responsive layouts, keyboard-accessible navigation, project details, and a GitHub-to-Vercel deployment workflow.',
     stack: ['React', 'Vite', 'JavaScript', 'CSS', 'Vercel'],
     links: [{ label: 'View code', href: 'https://github.com/waycon86/conwaymbenson-dev' }],

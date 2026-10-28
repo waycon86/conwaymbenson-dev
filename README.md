@@ -16,10 +16,11 @@ Build with `npm run build`; inspect the build with `npm run preview`.
 ## Update content
 
 - `src/data/projects.js`: featured projects, coursework, links, and skill groups.
-- `src/App.jsx`: sections, interactive filters, and project workflow illustrations. Illustrations are labelled examples, not screenshots or live application data.
+- `src/App.jsx`: sections, interactive filters, and project image cards with full-size image links.
 - `src/App.css` and `src/index.css`: responsive styles, focus states, and reduced-motion support.
 - `public/resume.pdf`: the current resume download; replace this file to update it without changing its URL.
 - `index.html`: page title, description, canonical URL, and social metadata.
+- `public/projects/`: project-specific artwork, official branding, and screenshots optimized as WebP. See `docs/project-images.md` for their sources.
 
 The main branch is connected to the existing Vercel project. Preserve that connection and URL when updating this repository.
 
