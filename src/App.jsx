@@ -1,442 +1,127 @@
-export default function App() {
-  const skills = [
-    "Python",
-    "Django",
-    "REST APIs",
-    "PostgreSQL",
-    "JavaScript",
-    "HTML / CSS",
-    "Git & GitHub",
-    "Linux (Ubuntu)",
-    "Render",
-    "Capacitor",
-    "Progressive Web Apps (PWA)",
-    "Responsive Design",
-    "Tableau",
-    "R Data Science",
-    "Salesforce",
-    "ServiceBench",
-    "System Troubleshooting",
-  ];
+import { useState } from 'react'
+import { featuredProjects, foundationProjects, skillGroups } from './data/projects'
+import './App.css'
 
-  const projects = [
-    {
-      title: "Training Hub / AppBar",
-      subtitle: "Full-stack operations and employee training platform",
-      stack: "Python • Django • PostgreSQL • Render • JavaScript • Capacitor",
-      description:
-        "Built a Django-based hospitality operations platform designed to support employee training, scheduling visibility, quizzes, manuals, messaging, and manager workflows. The project focuses on real operational needs, production deployment, persistent database setup, and mobile-friendly use.",
-      highlights: [
-        "Employee authentication and profile systems",
-        "Training modules and knowledge tracking",
-        "Quiz platform supporting cocktail, wine, beer, food, dessert, and service education",
-        "PDF ingestion workflows for training content and quizzes",
-        "PostgreSQL database persistence and admin workflows",
-        "Operational dashboards and scheduling visibility",
-        "Progressive Web Apps (PWA) support",
-        "Android and iOS packaging using Capacitor",
-        "Production deployment using Render",
-      ],
-      liveUrl: "https://properbar.onrender.com",
-      demoUsername: "demo",
-      demoPassword: "Demo123!",
-    },
-    {
-      title: "ConwayMBenson.dev",
-      subtitle: "Personal developer portfolio",
-      stack: "React • Vite • JavaScript",
-      description:
-        "Built a personal portfolio website to present software projects, technical skills, resume materials, and career background in one professional place.",
-      highlights: [
-        "React and Vite frontend",
-        "Project showcase",
-        "Resume integration",
-        "Responsive layout",
-        "Professional contact section",
-      ],
-      liveUrl: "https://conwaymbenson.dev",
-    },
-    {
-      title: "Mobile App Packaging",
-      subtitle: "PWA to iOS and Android workflow",
-      stack: "Capacitor • PWA • iOS • Android",
-      description:
-        "Converted a web application into a mobile-ready experience using Progressive Web App standards and Capacitor, including manifests, icons, safe-area fixes, and app-store preparation steps.",
-      highlights: [
-        "PWA setup with manifest and install support",
-        "Capacitor integration for iOS and Android",
-        "Mobile layout debugging and device testing",
-        "App icon, splash screen, and mobile metadata setup",
-        "Release preparation for app stores",
-      ],
-    },
-  ];
+function Arrow({ diagonal = false }) {
+  return <span aria-hidden="true">{diagonal ? '↗' : '→'}</span>
+}
 
-  return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-amber-400">
-              ConwayMBenson.dev
-            </p>
-            <h1 className="text-lg font-semibold">Conway M. Benson</h1>
-          </div>
+function ProjectLinks({ links }) {
+  return <div className="project-links">{links.map(({ label, href, primary }) => (
+    <a className={primary ? 'button button-primary' : 'text-link'} href={href} key={href} target="_blank" rel="noopener noreferrer">{label}<Arrow diagonal /></a>
+  ))}</div>
+}
 
-          <nav className="hidden items-center gap-6 text-sm text-neutral-300 md:flex">
-            <a href="#projects" className="transition hover:text-amber-400">
-              Projects
-            </a>
-            <a href="#skills" className="transition hover:text-amber-400">
-              Skills
-            </a>
-            <a href="#about" className="transition hover:text-amber-400">
-              About
-            </a>
-            <a href="#contact" className="transition hover:text-amber-400">
-              Contact
-            </a>
-          </nav>
+function ProjectVisual({ type }) {
+  if (type === 'student') return (
+    <div className="project-visual student-visual">
+      <div className="visual-topline"><span>STUDENT ON THE GO</span><span>THE WORKFLOW</span></div>
+      <div className="study-preview">
+        <div className="preview-heading"><span>Make room for the work.</span><span className="preview-dot" /></div>
+        <div className="preview-week" aria-hidden="true">
+          <div><span>MON</span><i className="busy-block">Class</i><i className="study-block">Research</i></div>
+          <div><span>TUE</span><i className="study-block">Outline</i><i className="busy-block long-block">Work</i></div>
+          <div><span>WED</span><i className="busy-block">Class</i><i className="study-block">Draft</i></div>
+          <div><span>THU</span><i className="study-block">Revise</i><i className="deadline-block">Due date</i></div>
         </div>
-      </header>
-
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.18),transparent_35%)]" />
-        <div className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <p className="mb-4 inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-300">
-                Software Developer
-              </p>
-
-              <h2 className="text-4xl font-bold leading-tight md:text-6xl">
-                Software Developer | Python | Django | Backend Systems
-              </h2>
-
-              <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-300">
-                I build backend systems and operational platforms using Python,
-                Django, PostgreSQL, REST APIs, and cloud deployment workflows.
-                My background in emergency medicine, business ownership, and
-                technical operations shapes how I approach software: solve real
-                problems, own outcomes, and build systems people actually use.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#projects"
-                  className="rounded-2xl bg-amber-400 px-6 py-3 font-semibold text-neutral-950 shadow-lg shadow-amber-400/20 transition hover:scale-[1.02]"
-                >
-                  View Projects
-                </a>
-
-                <a
-                  href="#contact"
-                  className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-amber-400 hover:text-amber-300"
-                >
-                  Contact Me
-                </a>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
-              <div className="rounded-2xl border border-white/10 bg-neutral-900 p-6">
-                <p className="text-sm uppercase tracking-[0.25em] text-amber-400">
-                  What I Bring
-                </p>
-
-                <div className="mt-6 space-y-5">
-                  {[
-                    [
-                      "Backend Development",
-                      "Python, Django, REST APIs, and database-backed applications",
-                    ],
-                    [
-                      "Operational Mindset",
-                      "Building tools around real business and workflow needs",
-                    ],
-                    [
-                      "Deployment Experience",
-                      "Render hosting, PostgreSQL persistence, debugging, and iteration",
-                    ],
-                    [
-                      "Mobile Readiness",
-                      "Responsive UI, Progressive Web Apps, and Capacitor packaging",
-                    ],
-                  ].map(([title, text]) => (
-                    <div
-                      key={title}
-                      className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
-                    >
-                      <h3 className="font-semibold text-white">{title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-neutral-300">
-                        {text}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
-            Featured Work
-          </p>
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Projects That Show How I Work
-          </h2>
-          <p className="mt-4 max-w-3xl leading-8 text-neutral-300">
-            I build software that is useful, maintainable, and grounded in
-            real-world needs. These projects highlight backend development,
-            database work, deployment, debugging, mobile workflows, and product
-            thinking.
-          </p>
-        </div>
-
-        <div className="grid gap-6">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 shadow-xl md:p-8"
-            >
-              <div className="grid gap-8 md:grid-cols-[1.3fr_0.9fr]">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-amber-400">
-                    {project.subtitle}
-                  </p>
-
-                  <h3 className="mt-3 text-2xl font-semibold">
-                    {project.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm font-semibold text-amber-300">
-                    {project.stack}
-                  </p>
-
-                  <p className="mt-4 leading-8 text-neutral-300">
-                    {project.description}
-                  </p>
-
-                  {project.liveUrl && (
-                    <div className="mt-6 flex flex-wrap gap-4">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="rounded-xl bg-amber-400 px-4 py-2 text-sm font-semibold text-neutral-950 transition hover:scale-[1.02]"
-                      >
-                        View Live Project
-                      </a>
-                    </div>
-                  )}
-
-                  {project.demoUsername && project.demoPassword && (
-                    <p className="mt-3 text-sm text-neutral-400">
-                      Demo Login → Username: {project.demoUsername} | Password:{" "}
-                      {project.demoPassword}
-                    </p>
-                  )}
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-5">
-                  <p className="text-sm font-semibold text-white">Highlights</p>
-                  <ul className="mt-4 space-y-3 text-sm text-neutral-300">
-                    {project.highlights.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-amber-400" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="skills" className="border-y border-white/10 bg-white/[0.02]">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <div className="grid items-start gap-10 lg:grid-cols-2">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
-                Skills
-              </p>
-              <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Technical Skills With Real Project Experience
-              </h2>
-              <p className="mt-4 max-w-2xl leading-8 text-neutral-300">
-                My strongest experience is in Python, Django, backend workflows,
-                PostgreSQL, deployment, debugging, and building tools that
-                improve operations. I’m looking for software engineering roles
-                where I can contribute quickly and keep growing.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/10 bg-neutral-900 px-4 py-2 text-sm text-neutral-200"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
-              About Me
-            </p>
-
-            <h2 className="mt-3 text-3xl font-bold">
-              How I Think About Building Software
-            </h2>
-
-            <p className="mt-5 leading-8 text-neutral-300">
-              I did not come into software through the traditional path, and
-              that has shaped the kind of developer I am.
-            </p>
-
-            <p className="mt-4 leading-8 text-neutral-300">
-              I grew up on a farm where solving problems was part of everyday
-              life. If something broke, you fixed it. There was no escalation
-              path, no waiting for someone else to step in, and no room to
-              ignore the problem.
-            </p>
-
-            <p className="mt-4 leading-8 text-neutral-300">
-              That mindset carried into emergency medicine. As an EMT-B in
-              Washington, DC, I worked in environments where decisions had real
-              consequences and systems often failed. You learn to stay calm,
-              think clearly, and take ownership.
-            </p>
-
-            <p className="mt-4 leading-8 text-neutral-300">
-              Software gave me a way to solve operational problems at scale. I
-              focus on backend systems, workflow tools, and applications that
-              reduce friction instead of adding to it.
-            </p>
-
-            <p className="mt-4 leading-8 text-neutral-300">
-              Today, I build applications using Python, Django, PostgreSQL,
-              REST APIs, and modern web technologies with an emphasis on
-              reliability, execution, and practical value.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-amber-400/20 bg-amber-400/5 p-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-amber-300">
-              What Sets Me Apart
-            </p>
-
-            <div className="mt-5 grid gap-4">
-              {[
-                "Builder mindset from real-world environments",
-                "Experience solving problems under pressure",
-                "Focus on systems that actually work in practice",
-                "Strong ownership and accountability",
-                "Ability to connect technical work to real operations",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-amber-300/15 bg-neutral-950/40 p-4 text-neutral-200"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
-        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-amber-400/10 p-8 md:p-10">
-          <div className="grid items-start gap-10 md:grid-cols-[1.2fr_0.8fr]">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
-                Contact
-              </p>
-
-              <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Let’s Talk About Opportunities
-              </h2>
-
-              <p className="mt-4 max-w-2xl leading-8 text-neutral-300">
-                I’m looking for software engineering opportunities where I can
-                contribute to real products, keep growing as a backend
-                developer, and help build systems that solve meaningful
-                problems.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="mailto:ConwayMBenson@gmail.com"
-                  className="rounded-2xl bg-amber-400 px-6 py-3 font-semibold text-neutral-950 transition hover:scale-[1.02]"
-                >
-                  Email Me
-                </a>
-
-                <a
-                  href="https://github.com/waycon86?tab=repositories"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-amber-400 hover:text-amber-300"
-                >
-                  GitHub
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/conwaymbenson/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-amber-400 hover:text-amber-300"
-                >
-                  LinkedIn
-                </a>
-
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-amber-400 hover:text-amber-300"
-                >
-                  Download Resume
-                </a>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-neutral-950/70 p-6">
-              <p className="text-sm uppercase tracking-[0.2em] text-amber-400">
-                What I’m Looking For
-              </p>
-
-              <h3 className="mt-3 text-lg font-semibold text-white">
-                Software Engineering Opportunities
-              </h3>
-
-              <p className="mt-4 text-sm leading-6 text-neutral-300">
-                I’m currently seeking a software engineering role where I can
-                contribute to real systems, strengthen my backend skills, and
-                continue growing as a developer.
-              </p>
-
-              <p className="mt-4 text-sm leading-6 text-neutral-300">
-                I’m especially interested in backend or full-stack roles where I
-                can build, ship, debug, and improve software that has practical
-                impact.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <p className="preview-caption">Illustrative plan · Fixed commitments stay protected</p>
+      </div>
+      <div className="visual-bottomline"><span>Start with a deadline.</span><span>Find a realistic plan.<Arrow /></span></div>
     </div>
-  );
+  )
+  if (type === 'waycon') return (
+    <div className="project-visual waycon-visual">
+      <div className="visual-topline"><span>WAYCON DAILY</span><span>THE WORKFLOW</span></div>
+      <div className="assistant-preview">
+        <div className="message-preview">“Help me turn my day into a plan.”</div>
+        <div className="draft-preview">
+          <div><span className="draft-symbol" aria-hidden="true">W</span><strong>A draft you can review.</strong></div>
+          <p>Describe a task. Check the details.<br />Confirm before anything is saved.</p>
+          <span className="review-label"><span aria-hidden="true">✓</span> You stay in control</span>
+        </div>
+        <p className="preview-caption">Illustrative interaction · Validate → Review → Confirm</p>
+      </div>
+      <div className="visual-bottomline"><span>Natural language in.</span><span>Structured tasks out.<Arrow /></span></div>
+    </div>
+  )
+  return (
+    <div className="project-visual training-visual">
+      <div className="visual-topline"><span>TRAINING HUB / APPBAR</span><span>THE WORKFLOW</span></div>
+      <div className="training-preview">
+        <span className="manual-label">FROM THE FLOOR TO THE PLATFORM</span>
+        <h4>One place to get ready<br />for the shift.</h4>
+        <div className="training-modules">{['Menus & manuals', 'Training & quizzes', 'Schedules & pre-shift'].map((label, index) => (
+          <div key={label}><span>0{index + 1}</span><strong>{label}</strong><Arrow /></div>
+        ))}</div>
+      </div>
+      <div className="visual-bottomline"><span>Real hospitality workflows.</span><span>Web & mobile.<Arrow /></span></div>
+    </div>
+  )
+}
+
+function FeaturedProject({ project, index }) {
+  return (
+    <article className="featured-project" id={project.id} aria-labelledby={`${project.id}-title`}>
+      <div className="project-copy">
+        <div className="project-eyebrow"><span>0{index + 1} / {project.category}</span><span className="status">{project.status}</span></div>
+        <h3 id={`${project.id}-title`}>{project.title}</h3><p className="project-subtitle">{project.subtitle}</p>
+        <p className="project-description">{project.description}</p>
+        <ul className="project-highlights">{project.highlights.map(item => <li key={item}>{item}</li>)}</ul>
+        <ul className="tech-list" aria-label={`${project.title} technologies`}>{project.stack.map(tech => <li key={tech}>{tech}</li>)}</ul>
+        <ProjectLinks links={project.links} /><p className="project-note">{project.note}</p>
+        <details className="engineering-details"><summary>Inside the build<span aria-hidden="true">+</span></summary><div>{project.engineering.map(({ title, text }) => <p key={title}><strong>{title}</strong> {text}</p>)}</div></details>
+      </div>
+      <ProjectVisual type={project.visual} />
+    </article>
+  )
+}
+
+export default function App() {
+  const [foundationFilter, setFoundationFilter] = useState('All')
+  const visibleFoundations = foundationProjects.filter(project => foundationFilter === 'All' || project.category === foundationFilter)
+  return (
+    <>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <header className="site-header"><div className="shell header-inner">
+        <a className="brand" href="#home" aria-label="Conway M. Benson, home"><span className="brand-mark" aria-hidden="true">CB<span>.</span></span><span>Conway M. Benson<small>SOFTWARE DEVELOPER</small></span></a>
+        <nav className="site-nav" aria-label="Main navigation"><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a><a className="nav-resume" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume<Arrow diagonal /></a></nav>
+      </div></header>
+      <main id="main">
+        <section className="hero shell" id="home" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="eyebrow"><span className="availability-dot" aria-hidden="true" />PYTHON · DJANGO · REACT · AI</p>
+            <h1 id="hero-title">Practical software.<br /><span>Built from real life.</span></h1>
+            <p className="hero-description">I’m Conway, a software developer building tools for the way people actually work, study, and plan their day.</p>
+            <p className="hero-detail">From student scheduling to hospitality operations and AI-assisted planning, I turn everyday problems into working applications.</p>
+            <div className="hero-actions"><a className="button button-primary" href="#projects">Explore my work<Arrow /></a><a className="text-link" href="https://github.com/waycon86" target="_blank" rel="noopener noreferrer">GitHub<Arrow diagonal /></a></div>
+            <p className="hero-location">Washington, DC area<span aria-hidden="true">/</span>Open to software engineering opportunities</p>
+          </div>
+          <aside className="build-index" aria-label="Featured project index"><div className="index-header"><span>CURRENT PROJECTS</span><span className="index-rule" /></div>{featuredProjects.map((project, index) => (
+            <a href={`#${project.id}`} key={project.id} className="index-project"><span className="index-number">0{index + 1}</span><span><strong>{project.title}</strong><small>{project.shortDescription}</small></span><Arrow diagonal /></a>
+          ))}<div className="index-footer"><span>Built, deployed, and still improving.</span><span aria-hidden="true">↙</span></div></aside>
+        </section>
+        <section className="shell projects-section" id="projects" aria-labelledby="projects-title">
+          <div className="section-heading"><div><p className="eyebrow">SELECTED WORK</p><h2 id="projects-title">From the problem<br />to the product.</h2></div><p>Personal projects shaped by my experience in school, hospitality, and everyday planning. Here’s what I built and how it works.</p></div>
+          <div className="featured-projects">{featuredProjects.map((project, index) => <FeaturedProject key={project.id} project={project} index={index} />)}</div>
+          <div className="foundations-header"><div><p className="eyebrow">MORE OF THE WORK</p><h3>Earlier builds & foundations</h3></div><div className="project-filters" role="group" aria-label="Filter earlier projects">{['All', 'Coursework', 'Portfolio'].map(filter => <button key={filter} type="button" aria-pressed={foundationFilter === filter} onClick={() => setFoundationFilter(filter)}>{filter}</button>)}</div></div>
+          <p className="visually-hidden" role="status">{visibleFoundations.length} earlier {visibleFoundations.length === 1 ? 'project' : 'projects'} shown</p>
+          <div className="foundation-grid">{visibleFoundations.map(project => (
+            <article className="foundation-project" key={project.title}><p className="foundation-category">{project.category}<span aria-hidden="true">↗</span></p><h4>{project.title}</h4><p>{project.description}</p><ul className="tech-list" aria-label={`${project.title} technologies`}>{project.stack.map(tech => <li key={tech}>{tech}</li>)}</ul><ProjectLinks links={project.links} /></article>
+          ))}</div>
+          <a className="github-more text-link" href="https://github.com/waycon86?tab=repositories" target="_blank" rel="noopener noreferrer">More experiments and learning on GitHub<Arrow diagonal /></a>
+        </section>
+        <section className="skills-section" id="skills" aria-labelledby="skills-title"><div className="shell">
+          <div className="section-heading"><div><p className="eyebrow">THE TOOLKIT</p><h2 id="skills-title">Skills put to work.</h2></div><p>Python and Django are my foundation. My recent projects extend into React, TypeScript, structured AI workflows, and production deployment.</p></div>
+          <div className="skill-grid">{skillGroups.map(({ title, number, skills, context }) => <div className="skill-group" key={title}><span className="skill-number">{number}</span><h3>{title}</h3><p>{context}</p><ul className="skill-list">{skills.map(skill => <li key={skill}>{skill}</li>)}</ul></div>)}</div>
+          <div className="additional-skills"><span>ALSO IN MY TOOLKIT</span><p>Tableau · R · Data exploration · Technical troubleshooting · Salesforce · ServiceBench</p></div>
+        </div></section>
+        <section className="shell about-section" id="about" aria-labelledby="about-title">
+          <div className="about-heading"><p className="eyebrow">THE PERSON BEHIND THE CODE</p><h2 id="about-title">A different path.<br /><span>The same drive<br />to solve problems.</span></h2><p className="about-signature">Conway M. Benson<span>Developer · Student · Builder</span></p></div>
+          <div className="about-copy"><p className="about-lead">I started learning to code in the back of an ambulance between EMT calls.</p><p>I grew up on a small farm in Michigan, worked in emergency medicine, ran a moving business, and built experience in technical service and hospitality. Those environments taught me to stay calm, figure out what’s broken, and take responsibility for fixing it.</p><p>That’s how I approach software, too. Training Hub grew out of hospitality workflows. Student on the Go tackles the challenge of fitting school around work. Waycon Daily brings tasks, goals, and planning into one place.</p><p>I’m continuing my education at Southern New Hampshire University and building with Python, Django, React, and AI tools. I use AI to ask better questions, work through unfamiliar problems, and keep learning as I build.</p><a className="text-link" href="/resume.pdf" download>Download my resume<Arrow diagonal /></a></div>
+        </section>
+        <section className="shell contact-section" id="contact" aria-labelledby="contact-title"><div className="contact-panel"><div><p className="eyebrow">LET’S CONNECT</p><h2 id="contact-title">Have something<br />worth building?</h2><p>I’m looking for backend and full-stack software engineering opportunities where I can contribute to real products and keep growing.</p><a className="button button-primary" href="mailto:ConwayMBenson@gmail.com">Get in touch<Arrow diagonal /></a></div><div className="contact-links"><a href="mailto:ConwayMBenson@gmail.com"><span>Email</span><strong>ConwayMBenson@gmail.com</strong><Arrow diagonal /></a><a href="https://github.com/waycon86" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>waycon86</strong><Arrow diagonal /></a><a href="https://www.linkedin.com/in/conwaymbenson/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong>Conway M. Benson</strong><Arrow diagonal /></a><a href="/resume.pdf" download><span>Resume</span><strong>Download PDF</strong><Arrow diagonal /></a></div></div></section>
+      </main>
+      <footer className="site-footer shell"><a className="footer-brand" href="#home">ConwayMBenson.dev<span>© {new Date().getFullYear()} Conway M. Benson</span></a><p>Built with React & Vite.<span>Always learning. Always building.</span></p><a className="text-link" href="#home">Back to top<span aria-hidden="true">↑</span></a></footer>
+    </>
+  )
 }

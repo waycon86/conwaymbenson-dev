@@ -1,16 +1,30 @@
-# React + Vite
+# Conway M. Benson — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio built with React, Vite, and CSS, with Tailwind base styles. Hosted at [conwaymbenson-dev.vercel.app](https://conwaymbenson-dev.vercel.app/).
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Requires Node.js 20.19+ or 22.12+.
 
-## React Compiler
+```bash
+npm ci
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Build with `npm run build`; inspect the build with `npm run preview`.
 
-## Expanding the ESLint configuration
+## Update content
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/data/projects.js`: featured projects, coursework, links, and skill groups.
+- `src/App.jsx`: sections, interactive filters, and project workflow illustrations. Illustrations are labelled examples, not screenshots or live application data.
+- `src/App.css` and `src/index.css`: responsive styles, focus states, and reduced-motion support.
+- `public/resume.pdf`: the current resume download; replace this file to update it without changing its URL.
+- `index.html`: page title, description, canonical URL, and social metadata.
+
+The main branch is connected to the existing Vercel project. Preserve that connection and URL when updating this repository.
+
+## Content notes
+
+The October 2026 refresh features Student on the Go, Waycon Daily, and Training Hub / AppBar, with GoalTracker, Little Lemon coursework, and this portfolio as earlier work. Public repositories and demos are linked where available. Private repositories are identified without inaccessible code links.
+
+Descriptions distinguish current implementation, active development, and storage or access limitations. Student on the Go uses browser-local persistence; Waycon Daily calendar checks use the last synced data. Mobile packaging is implementation work, not an app-store release.
