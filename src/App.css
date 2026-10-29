@@ -17,7 +17,7 @@
 .site-nav a:hover { color: var(--gold); }
 .site-nav .nav-resume { display: flex; align-items: center; gap: 18px; border: 1px solid #4d4636; padding: 9px 13px; border-radius: 4px; color: var(--text); }
 .hero { display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 78px; padding-block: 108px 96px; }
-.hero h1 { font-size: clamp(42px, 4.3vw, 62px); line-height: 1.07; font-weight: 650; letter-spacing: -.055em; margin: 0; }
+.hero h1 { font-size: clamp(42px, 4.3vw, 62px); line-height: 1.07; font-weight: 650; letter-spacing: -.04em; margin: 0; }
 .hero h1 > span { color: var(--gold); }
 .availability-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 0 4px #eab95a16; }
 .hero-description { color: #dddcd7; font-size: 18px; line-height: 1.7; margin: 26px 0 14px; max-width: 550px; }
