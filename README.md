@@ -18,7 +18,7 @@ Build with `npm run build`; inspect the build with `npm run preview`.
 - `src/data/projects.js`: featured projects, coursework, links, and skill groups.
 - `src/App.jsx`: sections, interactive filters, and project image cards with full-size image links.
 - `src/App.css` and `src/index.css`: responsive styles, focus states, and reduced-motion support.
-- Typography: Space Grotesk Variable for headings and DM Sans Variable for body text, bundled through Fontsource. Font licenses are included under `public/fonts/`.
+- Typography: Gabriela for headings and Old Standard TT for body text, loaded through the Google Fonts stylesheet in `index.html`.
 - `public/resume.pdf`: the current resume download; replace this file to update it without changing its URL.
 - `index.html`: page title, description, canonical URL, and social metadata.
 - `public/projects/`: project-specific artwork, official branding, and screenshots optimized as WebP. See `docs/project-images.md` for their sources.
